@@ -77,8 +77,8 @@ const Index = () => {
             </Badge>
             
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              Discover the World
-              <span className="block text-gold">in Luxury</span>
+              بسم الله - Blessed
+              <span className="block text-gold">Travel Journeys</span>
             </h1>
             
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed opacity-90">
@@ -92,8 +92,8 @@ const Index = () => {
                 className="bg-gradient-to-r from-gold to-gold/90 text-emerald-dark hover:shadow-2xl transition-all duration-300 px-8 py-6 text-lg font-semibold"
                 asChild
               >
-                <Link to="/destinations">
-                  Explore Destinations
+                <Link to="/booking">
+                  ☪️ Book Sacred Journey
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -257,7 +257,7 @@ const Index = () => {
                 className="bg-gradient-to-r from-gold to-gold/90 text-emerald-dark hover:shadow-2xl transition-all duration-300 px-8 py-6 text-lg"
                 asChild
               >
-                <Link to="/contact">Start Planning Today</Link>
+                <Link to="/booking">🌙 Begin Your Journey</Link>
               </Button>
               <Button 
                 size="lg" 

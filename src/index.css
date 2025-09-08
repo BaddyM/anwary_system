@@ -46,12 +46,17 @@ All colors MUST be HSL.
     --gradient-hero: linear-gradient(135deg, hsl(var(--emerald)) 0%, hsl(var(--emerald-light)) 100%);
     --gradient-gold: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(43 100% 75%) 100%);
     --gradient-overlay: linear-gradient(135deg, hsl(var(--emerald) / 0.9) 0%, hsl(var(--emerald-dark) / 0.8) 100%);
+    --gradient-islamic: linear-gradient(45deg, hsl(var(--emerald)) 0%, hsl(var(--gold)) 25%, hsl(var(--emerald)) 50%, hsl(var(--gold)) 75%, hsl(var(--emerald)) 100%);
 
     --shadow-elegant: 0 10px 40px -10px hsl(var(--emerald) / 0.3);
     --shadow-gold: 0 8px 30px -8px hsl(var(--gold) / 0.4);
+    --shadow-islamic: 0 0 30px hsl(var(--emerald) / 0.2), 0 0 60px hsl(var(--gold) / 0.1);
 
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    --pattern-islamic: radial-gradient(circle at 2px 2px, hsl(var(--emerald) / 0.15) 1px, transparent 0);
+    --border-islamic: repeating-linear-gradient(45deg, hsl(var(--gold) / 0.3), hsl(var(--gold) / 0.3) 2px, transparent 2px, transparent 8px);
 
     --radius: 0.5rem;
 

@@ -13,6 +13,7 @@ const Navigation = () => {
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/destinations", label: "Destinations" },
+    { href: "/booking", label: "Book Now" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -22,10 +23,16 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
-            <div className="p-2 rounded-lg bg-gradient-to-br from-emerald to-emerald-light group-hover:shadow-lg transition-all duration-300">
-              <Plane className="h-6 w-6 text-primary-foreground" />
+            <div className="p-2 rounded-lg bg-gradient-to-br from-emerald to-emerald-light group-hover:shadow-lg transition-all duration-300 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-gold/20 to-emerald/20 opacity-50"></div>
+              <div className="relative flex items-center justify-center">
+                <span className="text-xl">☪️</span>
+              </div>
             </div>
-            <span className="text-xl font-bold text-foreground">Anwary Travels</span>
+            <div className="flex flex-col">
+              <span className="text-lg font-bold text-foreground">أنوار السفر</span>
+              <span className="text-sm font-medium text-emerald">Anwary Travels</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -41,8 +48,9 @@ const Navigation = () => {
                 {link.label}
               </Link>
             ))}
-            <Button variant="default" className="bg-gradient-to-r from-emerald to-emerald-light hover:shadow-lg transition-all duration-300">
-              Book Now
+            <Button variant="default" className="bg-gradient-to-r from-emerald to-emerald-light hover:shadow-lg transition-all duration-300 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-gold/20 to-emerald/20 opacity-30"></div>
+              <span className="relative">☪️ Book Journey</span>
             </Button>
           </div>
 
@@ -76,8 +84,9 @@ const Navigation = () => {
                 </Link>
               ))}
               <div className="px-3 py-2">
-                <Button className="w-full bg-gradient-to-r from-emerald to-emerald-light">
-                  Book Now
+                <Button className="w-full bg-gradient-to-r from-emerald to-emerald-light relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-gold/20 to-emerald/20 opacity-30"></div>
+                  <span className="relative">☪️ Book Journey</span>
                 </Button>
               </div>
             </div>

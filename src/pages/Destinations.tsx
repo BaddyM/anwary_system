@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Star, MapPin, Clock, Users } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Destinations = () => {
   const destinations = [
@@ -179,7 +180,7 @@ const Destinations = () => {
                     </div>
                     
                     <Button className="w-full bg-gradient-to-r from-emerald to-emerald-light hover:shadow-lg transition-all duration-300">
-                      View Details & Book
+                      ☪️ Book This Journey
                     </Button>
                   </CardContent>
                 </Card>
@@ -198,8 +199,8 @@ const Destinations = () => {
               Our travel experts specialize in creating completely customized itineraries 
               tailored to your unique interests and preferences.
             </p>
-            <Button size="lg" className="bg-gradient-to-r from-emerald to-emerald-light hover:shadow-lg transition-all duration-300">
-              Create Custom Journey
+            <Button size="lg" className="bg-gradient-to-r from-emerald to-emerald-light hover:shadow-lg transition-all duration-300" asChild>
+              <Link to="/booking">☪️ Create Sacred Journey</Link>
             </Button>
           </div>
         </section>
