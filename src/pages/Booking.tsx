@@ -69,10 +69,10 @@ const Booking = () => {
                 <div className="text-6xl">🌙✨</div>
               </div>
               <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-                ﷽ Book Your Sacred <span className="text-emerald">Journey</span>
+                Bismillah - Book Your Blessed <span className="text-emerald">Journey</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                Bismillah - Begin your blessed adventure with Anwary Travels. 
+                Begin your blessed adventure with Anwary Travels. 
                 Choose your destination and dates for a journey filled with barakah and beautiful memories.
               </p>
             </div>
@@ -90,10 +90,9 @@ const Booking = () => {
                 
                 <CardHeader className="text-center pb-3">
                   <div className="text-3xl mb-3">☪️</div>
-                  <CardTitle className="text-3xl text-emerald">حجز رحلتك</CardTitle>
-                  <CardTitle className="text-2xl">Book Your Journey</CardTitle>
+                  <CardTitle className="text-2xl text-emerald">Book Your Journey</CardTitle>
                   <CardDescription>
-                    Fill in your travel details and we'll create a blessed itinerary for you
+                    Fill in your travel details and we will create a blessed itinerary for you
                   </CardDescription>
                 </CardHeader>
                 
@@ -124,7 +123,7 @@ const Booking = () => {
                   {/* Date Selection */}
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label>Departure Date تاريخ المغادرة</Label>
+                      <Label>Departure Date</Label>
                       <Popover>
                         <PopoverTrigger asChild>
                           <Button
@@ -152,7 +151,7 @@ const Booking = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <Label>Return Date تاريخ العودة</Label>
+                      <Label>Return Date</Label>
                       <Popover>
                         <PopoverTrigger asChild>
                           <Button
@@ -183,27 +182,27 @@ const Booking = () => {
                   {/* Personal Information */}
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="firstName">First Name الاسم الأول</Label>
+                      <Label htmlFor="firstName">First Name</Label>
                       <Input id="firstName" placeholder="Enter your first name" />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="lastName">Last Name اسم العائلة</Label>
+                      <Label htmlFor="lastName">Last Name</Label>
                       <Input id="lastName" placeholder="Enter your last name" />
                     </div>
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="email">Email Address البريد الإلكتروني</Label>
+                    <Label htmlFor="email">Email Address</Label>
                     <Input id="email" type="email" placeholder="Enter your email address" />
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="phone">Phone Number رقم الهاتف</Label>
+                    <Label htmlFor="phone">Phone Number</Label>
                     <Input id="phone" type="tel" placeholder="Enter your phone number" />
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="travelers">Number of Travelers عدد المسافرين</Label>
+                    <Label htmlFor="travelers">Number of Travelers</Label>
                     <Select>
                       <SelectTrigger>
                         <SelectValue placeholder="How many travelers?" />
@@ -220,7 +219,7 @@ const Booking = () => {
 
                   {/* Special Requirements */}
                   <div className="space-y-2">
-                    <Label htmlFor="requirements">Special Requirements متطلبات خاصة</Label>
+                    <Label htmlFor="requirements">Special Requirements</Label>
                     <Textarea 
                       id="requirements" 
                       placeholder="Halal food, prayer facilities, family-friendly activities, etc."
@@ -233,7 +232,7 @@ const Booking = () => {
                     size="lg"
                   >
                     <CheckCircle className="mr-2 h-5 w-5" />
-                    بارك الله فيك - Confirm Booking
+                    May Allah Bless Your Journey - Confirm Booking
                   </Button>
                 </CardContent>
               </Card>

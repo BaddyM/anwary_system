@@ -77,7 +77,7 @@ const Index = () => {
             </Badge>
             
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              بسم الله - Blessed
+              Bismillah - Blessed
               <span className="block text-gold">Travel Journeys</span>
             </h1>
             

@@ -30,8 +30,8 @@ const Navigation = () => {
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="text-lg font-bold text-foreground">أنوار السفر</span>
-              <span className="text-sm font-medium text-emerald">Anwary Travels</span>
+              <span className="text-lg font-bold text-foreground">Anwary Travels</span>
+              <span className="text-sm font-medium text-emerald">Islamic Journeys</span>
             </div>
           </Link>
 
