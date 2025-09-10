@@ -100,7 +100,7 @@ const Index = () => {
               
               <Button 
                 size="lg" 
-                variant="outline" 
+                variant="default" 
                 className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm px-8 py-6 text-lg"
                 asChild
               >
@@ -261,7 +261,7 @@ const Index = () => {
               </Button>
               <Button 
                 size="lg" 
-                variant="outline" 
+                variant="default" 
                 className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm px-8 py-6 text-lg"
                 asChild
               >

@@ -1,11 +1,13 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Plane } from "lucide-react";
 import { useState } from "react";
+import WhatsAppFab from "./WhatsappFab";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -30,8 +32,12 @@ const Navigation = () => {
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="text-lg font-bold text-foreground">Anwary Travels</span>
-              <span className="text-sm font-medium text-emerald">Islamic Journeys</span>
+              <span className="text-lg font-bold text-foreground">
+                Anwary Travels
+              </span>
+              <span className="text-sm font-medium text-emerald">
+                Islamic Journeys
+              </span>
             </div>
           </Link>
 
@@ -48,7 +54,11 @@ const Navigation = () => {
                 {link.label}
               </Link>
             ))}
-            <Button variant="default" className="bg-gradient-to-r from-emerald to-emerald-light hover:shadow-lg transition-all duration-300 relative overflow-hidden">
+            <Button
+              onClick={() => navigate("/booking")}
+              variant="default"
+              className="bg-gradient-to-r from-emerald to-emerald-light hover:shadow-lg transition-all duration-300 relative overflow-hidden"
+            >
               <div className="absolute inset-0 bg-gradient-to-r from-gold/20 to-emerald/20 opacity-30"></div>
               <span className="relative">☪️ Book Journey</span>
             </Button>
@@ -62,7 +72,11 @@ const Navigation = () => {
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </Button>
           </div>
         </div>
@@ -77,14 +91,19 @@ const Navigation = () => {
                   to={link.href}
                   onClick={() => setIsOpen(false)}
                   className={`block px-3 py-2 text-base font-medium transition-colors duration-200 hover:text-emerald ${
-                    isActive(link.href) ? "text-emerald" : "text-muted-foreground"
+                    isActive(link.href)
+                      ? "text-emerald"
+                      : "text-muted-foreground"
                   }`}
                 >
                   {link.label}
                 </Link>
               ))}
               <div className="px-3 py-2">
-                <Button className="w-full bg-gradient-to-r from-emerald to-emerald-light relative overflow-hidden">
+                <Button
+                  onClick={() => navigate("/booking")}
+                  className="w-full bg-gradient-to-r from-emerald to-emerald-light relative overflow-hidden"
+                >
                   <div className="absolute inset-0 bg-gradient-to-r from-gold/20 to-emerald/20 opacity-30"></div>
                   <span className="relative">☪️ Book Journey</span>
                 </Button>
