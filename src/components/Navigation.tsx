@@ -25,11 +25,11 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
-            <div className="p-2 rounded-lg bg-gradient-to-br from-emerald to-emerald-light group-hover:shadow-lg transition-all duration-300 relative overflow-hidden">
+            <div className="rounded-lg group-hover:shadow-lg transition-all duration-300 relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-gold/20 to-emerald/20 opacity-50"></div>
               <div className="relative flex items-center justify-center">
                 <span className="text-xl">
-                  <img src={logo} width={20} height={20} />
+                  <img src={logo} width={40} height={40} />
                 </span>
               </div>
             </div>
