@@ -18,8 +18,7 @@ export class CreateDestinationDto {
     description?: string;
 
     @ApiProperty()
-    @IsString()
-    @IsNotEmpty()
+    @IsOptional()
     image: string;
 
     @ApiProperty()
