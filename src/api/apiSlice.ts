@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-export const baseUrl = "http://localhost:3005";
+export const baseUrl = "https://anwary-backend.pearlnestestates.com";
 
 // Define base API configuration
 export const apiSlice = createApi({
