@@ -2,7 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Plane } from "lucide-react";
 import { useState } from "react";
-import WhatsAppFab from "./WhatsappFab";
+import logo from "../../public/logo.jpg";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,15 +28,17 @@ const Navigation = () => {
             <div className="p-2 rounded-lg bg-gradient-to-br from-emerald to-emerald-light group-hover:shadow-lg transition-all duration-300 relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-gold/20 to-emerald/20 opacity-50"></div>
               <div className="relative flex items-center justify-center">
-                <span className="text-xl">☪️</span>
+                <span className="text-xl">
+                  <img src={logo} width={20} height={20} />
+                </span>
               </div>
             </div>
             <div className="flex flex-col">
               <span className="text-lg font-bold text-foreground">
-                Anwary Travels
+                Anwary Travel
               </span>
               <span className="text-sm font-medium text-emerald">
-                Islamic Journeys
+                A journey of a lifetime
               </span>
             </div>
           </Link>
@@ -60,7 +62,7 @@ const Navigation = () => {
               className="bg-gradient-to-r from-emerald to-emerald-light hover:shadow-lg transition-all duration-300 relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-gold/20 to-emerald/20 opacity-30"></div>
-              <span className="relative">☪️ Book Journey</span>
+              <span className="relative"> Book Journey</span>
             </Button>
           </div>
 
@@ -105,7 +107,7 @@ const Navigation = () => {
                   className="w-full bg-gradient-to-r from-emerald to-emerald-light relative overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-gold/20 to-emerald/20 opacity-30"></div>
-                  <span className="relative">☪️ Book Journey</span>
+                  <span className="relative"> Book Journey</span>
                 </Button>
               </div>
             </div>

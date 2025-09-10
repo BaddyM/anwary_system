@@ -125,7 +125,7 @@ const Booking = () => {
       <>
         <Navigation />
         <WhatsAppFab />
-        <main className="min-h-screen bg-background">
+        <main className="min-h-screen bg-background w-full">
           {/* Hero Section */}
           <section className="pt-24 pb-16 bg-gradient-to-br from-emerald/10 to-gold/10 relative overflow-hidden">
             {/* Islamic Pattern Overlay */}
@@ -168,7 +168,7 @@ const Booking = () => {
                     <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-emerald via-gold to-emerald"></div>
 
                     <CardHeader className="text-center pb-3">
-                      <div className="text-3xl mb-3">☪️</div>
+                      <div className="text-3xl mb-3"></div>
                       <CardTitle className="text-2xl text-emerald">
                         Book Your Journey
                       </CardTitle>
@@ -215,7 +215,7 @@ const Booking = () => {
                                       {pkg.title} •{" "}
                                       {Intl.NumberFormat("en-US", {
                                         style: "currency",
-                                        currency: "UGX",
+                                        currency: "USD",
                                       }).format(pkg.price)}
                                     </div>
                                   </div>

@@ -35,10 +35,10 @@ const About = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-4xl mx-auto">
               <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-                About <span className="text-emerald">Anwary Travels</span>
+                About <span className="text-emerald">Anwary Travel</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                For over two decades, we've been turning travel dreams into extraordinary realities. 
+                For over one decade, we've been turning travel dreams into extraordinary realities. 
                 Our passion for exploration and commitment to excellence has made us the trusted choice 
                 for discerning travelers worldwide.
               </p>
@@ -74,7 +74,7 @@ const About = () => {
               <div className="relative">
                 <div className="aspect-square bg-gradient-to-br from-emerald/20 to-gold/20 rounded-2xl flex items-center justify-center">
                   <div className="text-center p-8">
-                    <div className="text-4xl md:text-6xl font-bold text-emerald mb-2">20+</div>
+                    <div className="text-4xl md:text-6xl font-bold text-emerald mb-2">10+</div>
                     <div className="text-lg text-muted-foreground">Years of Excellence</div>
                   </div>
                 </div>

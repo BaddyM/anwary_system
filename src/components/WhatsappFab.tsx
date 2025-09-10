@@ -9,7 +9,7 @@ type Props = {
 };
 
 const WhatsAppFab: React.FC<Props> = ({
-  phone = "256781181958",
+  phone = "256782 808261",
   message = "Hi 👋 I need some help",
   bottom = 20,
   right = 20,

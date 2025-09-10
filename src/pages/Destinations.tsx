@@ -123,7 +123,7 @@ const Destinations = () => {
                           <div className="text-lg font-bold text-emerald">
                             {Intl.NumberFormat("en-US", {
                               style: "currency",
-                              currency: "UGX",
+                              currency: "USD",
                             }).format(destination.price)}
                           </div>
                           <div className="text-sm text-muted-foreground">
@@ -175,7 +175,7 @@ const Destinations = () => {
 
                       {/* <Button 
                       className="w-full bg-gradient-to-r from-emerald to-emerald-light hover:shadow-lg transition-all duration-300">
-                        ☪️ Book This Journey
+                         Book This Journey
                       </Button> */}
                     </CardContent>
                   </Card>
@@ -199,7 +199,7 @@ const Destinations = () => {
                 className="bg-gradient-to-r from-emerald to-emerald-light hover:shadow-lg transition-all duration-300"
                 asChild
               >
-                <Link to="/booking">☪️ Create Sacred Journey</Link>
+                <Link to="/booking"> Create Sacred Journey</Link>
               </Button>
             </div>
           </section>

@@ -32,20 +32,20 @@ const Index = () => {
 
   const testimonials = [
     {
-      name: "Sarah Mitchell",
-      location: "New York",
+      name: "Bashir Anwary",
+      location: "Kampala",
       rating: 5,
       text: "Anwary Travels transformed our honeymoon into a magical experience. Every detail was perfect, from the overwater villa in Maldives to the private sunset cruise."
     },
     {
-      name: "James Rodriguez",
-      location: "California",
+      name: "Matovu Ibrahim",
+      location: "Kira",
       rating: 5,
       text: "The Swiss Alps adventure was beyond our wildest dreams. The luxury chalet, helicopter tours, and personalized service made it truly unforgettable."
     },
     {
-      name: "Emily Chen",
-      location: "London",
+      name: "Abdallah Aziz",
+      location: "Namugongo",
       rating: 5,
       text: "Our African safari was expertly planned. The luxury tented camp, incredible wildlife sightings, and cultural experiences exceeded all expectations."
     }
@@ -54,7 +54,7 @@ const Index = () => {
   const stats = [
     { number: "10,000+", label: "Happy Travelers" },
     { number: "150+", label: "Destinations" },
-    { number: "20+", label: "Years Experience" },
+    { number: "10+", label: "Years Experience" },
     { number: "98%", label: "Satisfaction Rate" }
   ];
 
@@ -77,8 +77,8 @@ const Index = () => {
             </Badge>
             
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              Bismillah - Blessed
-              <span className="block text-gold">Travel Journeys</span>
+              Anwary Travel
+              <span className="block text-gold">A journey of a lifetime</span>
             </h1>
             
             <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed opacity-90">
@@ -93,7 +93,7 @@ const Index = () => {
                 asChild
               >
                 <Link to="/booking">
-                  ☪️ Book Sacred Journey
+                   Book Sacred Journey
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -160,7 +160,7 @@ const Index = () => {
         </section>
 
         {/* Featured Destinations */}
-        <section className="py-20 bg-muted/50">
+        <section className="py-20 bg-muted/50 hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">

@@ -59,7 +59,7 @@ const Contact = () => {
     {
       icon: <Phone className="h-6 w-6 text-emerald" />,
       title: "Phone",
-      details: ["+1 (555) 123-4567", "+1 (555) 987-6543"],
+      details: ["+256 782 808261"],
       description: "Available 24/7 for travel emergencies",
     },
     {
@@ -71,7 +71,7 @@ const Contact = () => {
     {
       icon: <MapPin className="h-6 w-6 text-emerald" />,
       title: "Office",
-      details: ["123 Travel Plaza", "New York, NY 10001"],
+      details: ["UAP", "Kimati Avenue"],
       description: "Visit our luxury travel lounge",
     },
     {
