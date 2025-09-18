@@ -58,7 +58,7 @@ const Footer = () => {
                 placeholder="Enter your email"
                 className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:border-gold"
               />
-              <Button className="gradient-gold text-forest hover:opacity-90 whitespace-nowrap">
+              <Button className="gradient-gold text-forest hover:opacity-90 whitespace-nowrap shadow-lg">
                 Subscribe
               </Button>
             </div>
@@ -102,7 +102,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-serif text-lg font-semibold mb-6 text-gold">Quick Links</h4>
+            <h4 className="font-serif text-lg font-semibold mb-6 text-gold-bright">Quick Links</h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
@@ -119,7 +119,7 @@ const Footer = () => {
 
           {/* Popular Destinations */}
           <div>
-            <h4 className="font-serif text-lg font-semibold mb-6 text-gold">Popular Destinations</h4>
+            <h4 className="font-serif text-lg font-semibold mb-6 text-gold-bright">Popular Destinations</h4>
             <ul className="space-y-3">
               {destinations.map((destination) => (
                 <li key={destination}>
@@ -136,7 +136,7 @@ const Footer = () => {
 
           {/* Services & Contact */}
           <div>
-            <h4 className="font-serif text-lg font-semibold mb-6 text-gold">Our Services</h4>
+            <h4 className="font-serif text-lg font-semibold mb-6 text-gold-bright">Our Services</h4>
             <ul className="space-y-3 mb-8">
               {services.slice(0, 4).map((service) => (
                 <li key={service}>
@@ -147,15 +147,15 @@ const Footer = () => {
             
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
-                <Phone className="w-4 h-4 text-gold" />
+                <Phone className="w-4 h-4 text-gold-bright" />
                 <span className="text-white/80">+1 (555) 123-4567</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="w-4 h-4 text-gold" />
+                <Mail className="w-4 h-4 text-gold-bright" />
                 <span className="text-white/80">info@anwarytravel.com</span>
               </div>
               <div className="flex items-center space-x-3">
-                <MapPin className="w-4 h-4 text-gold" />
+                <MapPin className="w-4 h-4 text-gold-bright" />
                 <span className="text-white/80">New York, NY 10001</span>
               </div>
             </div>
@@ -169,13 +169,13 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex items-center space-x-1 text-white/80">
               <span>© 2024 Anwary Travel. Made with</span>
-              <Heart className="w-4 h-4 text-gold fill-current" />
+              <Heart className="w-4 h-4 text-gold-bright fill-current" />
               <span>for adventurers worldwide.</span>
             </div>
             <div className="flex items-center space-x-6 text-sm text-white/80">
-              <Link to="#" className="hover:text-gold transition-colors">Privacy Policy</Link>
-              <Link to="#" className="hover:text-gold transition-colors">Terms of Service</Link>
-              <Link to="#" className="hover:text-gold transition-colors">Cookie Policy</Link>
+              <Link to="#" className="hover:text-gold-bright transition-colors">Privacy Policy</Link>
+              <Link to="#" className="hover:text-gold-bright transition-colors">Terms of Service</Link>
+              <Link to="#" className="hover:text-gold-bright transition-colors">Cookie Policy</Link>
             </div>
           </div>
         </div>

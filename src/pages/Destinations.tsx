@@ -102,7 +102,7 @@ const destinations = [
 
 const Destinations = () => {
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen pt-24">
       {/* Header */}
       <section className="py-16 bg-pearl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

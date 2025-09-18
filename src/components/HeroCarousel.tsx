@@ -65,7 +65,7 @@ const HeroCarousel = () => {
                 <h1 className="font-serif text-5xl md:text-7xl font-bold mb-4 animate-fade-in">
                   {slide.title}
                 </h1>
-                <p className="text-xl md:text-2xl mb-4 text-gold animate-fade-in">
+                <p className="text-xl md:text-2xl mb-4 text-gold-bright animate-fade-in">
                   {slide.subtitle}
                 </p>
                 <p className="text-lg mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-in">
@@ -74,7 +74,7 @@ const HeroCarousel = () => {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
                   <Button 
                     size="lg" 
-                    className="gradient-gold text-forest hover:opacity-90 transition-opacity px-8 py-3"
+                    className="gradient-gold text-forest hover:opacity-90 transition-opacity px-8 py-3 shadow-lg"
                     asChild
                   >
                     <Link to="/destinations">
@@ -85,7 +85,7 @@ const HeroCarousel = () => {
                   <Button 
                     size="lg" 
                     variant="outline" 
-                    className="border-2 border-white text-white hover:bg-white hover:text-forest px-8 py-3"
+                    className="border-2 border-gold-light text-gold-light hover:bg-gold-light hover:text-forest px-8 py-3 backdrop-blur-sm bg-white/10"
                     asChild
                   >
                     <Link to="/booking">Book Your Journey</Link>
@@ -100,14 +100,14 @@ const HeroCarousel = () => {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 transition-colors z-10"
+        className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-gold/20 backdrop-blur-sm text-white hover:bg-gold/30 transition-colors z-10 shadow-lg"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 transition-colors z-10"
-      >
+        <button
+          onClick={nextSlide}
+          className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-gold/20 backdrop-blur-sm text-white hover:bg-gold/30 transition-colors z-10 shadow-lg"
+        >
         <ChevronRight className="w-6 h-6" />
       </button>
 
@@ -117,8 +117,8 @@ const HeroCarousel = () => {
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-colors ${
-              index === currentSlide ? "bg-gold" : "bg-white/50"
+            className={`w-4 h-4 rounded-full transition-colors ${
+              index === currentSlide ? "bg-gold-bright shadow-lg" : "bg-white/50"
             }`}
           />
         ))}

@@ -12,22 +12,30 @@ All colors MUST be HSL.
     --background: 0 0% 100%;
     --foreground: 150 25% 15%;
     
-    /* Travel Brand Palette */
-    --emerald: 158 64% 52%;
-    --emerald-dark: 158 64% 42%;
-    --emerald-light: 158 64% 62%;
-    --forest: 150 100% 25%;
-    --sage: 120 20% 85%;
-    --gold: 43 74% 66%;
-    --gold-dark: 43 74% 56%;
-    --gold-light: 43 74% 76%;
+    /* Enhanced Travel Brand Palette */
+    --emerald: 160 84% 39%;
+    --emerald-dark: 160 84% 29%;
+    --emerald-light: 160 84% 49%;
+    --emerald-bright: 160 84% 55%;
+    --forest: 150 100% 20%;
+    --forest-dark: 150 100% 15%;
+    --sage: 120 25% 85%;
+    --sage-light: 120 30% 92%;
+    --gold: 45 93% 58%;
+    --gold-dark: 45 93% 48%;
+    --gold-light: 45 93% 68%;
+    --gold-bright: 45 100% 65%;
     --pearl: 0 0% 98%;
+    --ivory: 48 100% 96%;
     
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--emerald)) 0%, hsl(var(--forest)) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(var(--pearl)) 0%, hsl(var(--sage)) 100%);
-    --gradient-gold: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-dark)) 100%);
-    --gradient-overlay: linear-gradient(180deg, transparent 0%, hsla(var(--forest), 0.8) 100%);
+    /* Enhanced Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--emerald)) 0%, hsl(var(--forest-dark)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--ivory)) 0%, hsl(var(--sage-light)) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(var(--gold-bright)) 0%, hsl(var(--gold-dark)) 100%);
+    --gradient-gold-light: linear-gradient(135deg, hsl(var(--gold-light)) 0%, hsl(var(--gold)) 100%);
+    --gradient-emerald: linear-gradient(135deg, hsl(var(--emerald-bright)) 0%, hsl(var(--emerald)) 100%);
+    --gradient-overlay: linear-gradient(180deg, transparent 0%, hsla(var(--forest-dark), 0.85) 100%);
+    --gradient-navbar: linear-gradient(90deg, hsl(var(--forest)) 0%, hsl(var(--emerald-dark)) 100%);
     
     /* Component Colors */
     --card: 0 0% 100%;
@@ -127,12 +135,31 @@ All colors MUST be HSL.
     background: var(--gradient-gold);
   }
   
+  .gradient-gold-light {
+    background: var(--gradient-gold-light);
+  }
+  
+  .gradient-emerald {
+    background: var(--gradient-emerald);
+  }
+  
+  .gradient-navbar {
+    background: var(--gradient-navbar);
+  }
+  
   .gradient-overlay {
     background: var(--gradient-overlay);
   }
   
   .text-gradient-gold {
     background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-emerald {
+    background: var(--gradient-emerald);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

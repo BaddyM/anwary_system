@@ -24,20 +24,29 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         
-        // Travel Brand Colors
+        // Enhanced Travel Brand Colors
         emerald: {
           DEFAULT: "hsl(var(--emerald))",
           dark: "hsl(var(--emerald-dark))",
           light: "hsl(var(--emerald-light))",
+          bright: "hsl(var(--emerald-bright))",
         },
-        forest: "hsl(var(--forest))",
-        sage: "hsl(var(--sage))",
+        forest: {
+          DEFAULT: "hsl(var(--forest))",
+          dark: "hsl(var(--forest-dark))",
+        },
+        sage: {
+          DEFAULT: "hsl(var(--sage))",
+          light: "hsl(var(--sage-light))",
+        },
         gold: {
           DEFAULT: "hsl(var(--gold))",
           dark: "hsl(var(--gold-dark))",
           light: "hsl(var(--gold-light))",
+          bright: "hsl(var(--gold-bright))",
         },
         pearl: "hsl(var(--pearl))",
+        ivory: "hsl(var(--ivory))",
         
         primary: {
           DEFAULT: "hsl(var(--primary))",
