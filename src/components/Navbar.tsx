@@ -7,13 +7,14 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
-  const navigation = [
-    { name: "Home", href: "/" },
-    { name: "Destinations", href: "/destinations" },
-    { name: "Gallery", href: "/gallery" },
-    { name: "Booking", href: "/booking" },
-    { name: "Contact", href: "/contact" },
-  ];
+const navigation = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Destinations", href: "/destinations" },
+  { name: "Gallery", href: "/gallery" },
+  { name: "Booking", href: "/booking" },
+  { name: "Contact", href: "/contact" },
+];
 
   const isActive = (href: string) => location.pathname === href;
 

@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input";
 const Footer = () => {
   const quickLinks = [
     { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
     { name: "Destinations", href: "/destinations" },
     { name: "Gallery", href: "/gallery" },
     { name: "Booking", href: "/booking" },
