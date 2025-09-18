@@ -16,6 +16,7 @@ import {
   Calendar,
   Users
 } from "lucide-react";
+import GoogleMap from "@/components/GoogleMap";
 
 const inquiryTypes = [
   "General Information",
@@ -323,21 +324,7 @@ const Contact = () => {
 
         {/* Map Section */}
         <div className="mt-16">
-          <Card className="travel-card overflow-hidden">
-            <CardContent className="p-0">
-              <div className="bg-sage h-64 flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="w-12 h-12 text-emerald mx-auto mb-4" />
-                  <h3 className="font-serif text-xl font-semibold text-forest mb-2">
-                    Find Us in New York
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Located in the heart of Manhattan's Travel District
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+          <GoogleMap />
         </div>
       </div>
     </div>

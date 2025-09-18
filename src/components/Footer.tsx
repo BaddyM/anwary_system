@@ -173,8 +173,8 @@ const Footer = () => {
               <span>for adventurers worldwide.</span>
             </div>
             <div className="flex items-center space-x-6 text-sm text-white/80">
-              <Link to="#" className="hover:text-gold-bright transition-colors">Privacy Policy</Link>
-              <Link to="#" className="hover:text-gold-bright transition-colors">Terms of Service</Link>
+              <Link to="/privacy" className="hover:text-gold-bright transition-colors">Privacy Policy</Link>
+              <Link to="/terms" className="hover:text-gold-bright transition-colors">Terms of Service</Link>
               <Link to="#" className="hover:text-gold-bright transition-colors">Cookie Policy</Link>
             </div>
           </div>
