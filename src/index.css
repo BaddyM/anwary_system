@@ -2,39 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Anwary Travel Design System - Green, White & Gold Luxury Travel Theme
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
+    /* Core Brand Colors */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: 150 25% 15%;
+    
+    /* Travel Brand Palette */
+    --emerald: 158 64% 52%;
+    --emerald-dark: 158 64% 42%;
+    --emerald-light: 158 64% 62%;
+    --forest: 150 100% 25%;
+    --sage: 120 20% 85%;
+    --gold: 43 74% 66%;
+    --gold-dark: 43 74% 56%;
+    --gold-light: 43 74% 76%;
+    --pearl: 0 0% 98%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--emerald)) 0%, hsl(var(--forest)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--pearl)) 0%, hsl(var(--sage)) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-dark)) 100%);
+    --gradient-overlay: linear-gradient(180deg, transparent 0%, hsla(var(--forest), 0.8) 100%);
+    
+    /* Component Colors */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 150 25% 15%;
+    
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --popover-foreground: 150 25% 15%;
+    
+    --primary: 158 64% 52%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 120 20% 85%;
+    --secondary-foreground: 150 25% 15%;
+    
+    --muted: 120 20% 85%;
+    --muted-foreground: 150 15% 45%;
+    
+    --accent: 43 74% 66%;
+    --accent-foreground: 150 25% 15%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 120 20% 90%;
+    --input: 120 20% 95%;
+    --ring: 158 64% 52%;
 
     --radius: 0.5rem;
 
@@ -94,12 +113,57 @@ All colors MUST be HSL.
   }
 }
 
+/* Custom Travel Animations & Effects */
+@layer utilities {
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .gradient-gold {
+    background: var(--gradient-gold);
+  }
+  
+  .gradient-overlay {
+    background: var(--gradient-overlay);
+  }
+  
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -10px hsl(var(--emerald) / 0.3);
+  }
+  
+  .travel-card {
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 8px 32px -8px hsl(var(--emerald) / 0.1);
+  }
+}
+
 @layer base {
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
   }
 }
