@@ -11,6 +11,7 @@ datasource db {
 model User {
     id        String   @id @default(uuid())
     name      String
+    email     String   @unique
     password  String
     role      UserRole @default(ADMIN)
     isActive  Boolean  @default(false)
@@ -19,17 +20,21 @@ model User {
 }
 
 model Destinations {
-    id          String    @id @default(uuid())
-    title       String
-    description String?   @db.LongText
-    image       String    @db.LongText
-    price       Int       @default(0)
-    rating     Int       @default(0)
-    location    String
-    isActive    Boolean   @default(false)
-    createdAt   DateTime  @default(now())
-    updatedAt   DateTime  @updatedAt
-    Booking     Booking[]
+    id           String    @id @default(uuid())
+    title        String
+    description  String?   @db.LongText
+    image        String    @db.LongText
+    price        Int       @default(0)
+    rating       Int       @default(0)
+    location     String
+    isActive     Boolean   @default(false)
+    checkInDate  DateTime
+    checkOutDate DateTime
+    persons      Int       @default(0)
+    isDeleted    Boolean   @default(false)
+    createdAt    DateTime  @default(now())
+    updatedAt    DateTime  @updatedAt
+    Booking      Booking[]
 }
 
 enum UserRole {
@@ -45,9 +50,7 @@ model Booking {
     memo          String?
     destinationId String
     destination   Destinations @relation(fields: [destinationId], references: [id])
-    checkInDate   DateTime
-    checkOutDate  DateTime
-    isActive      Boolean      @default(false)
+    isConfirmed   Boolean      @default(false)
     createdAt     DateTime     @default(now())
     updatedAt     DateTime     @updatedAt
 }
@@ -58,6 +61,50 @@ model Contact {
     contact   String
     message   String   @db.LongText
     isRead    Boolean  @default(false)
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+model Testimony {
+    id        String   @id @default(uuid())
+    name      String
+    contact   String?
+    address   String?
+    rating    Int      @default(0)
+    message   String   @db.LongText
+    isActive  Boolean  @default(false)
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+model CompanyInformation {
+    id                String   @id @default(uuid())
+    name              String
+    address           String?  @db.LongText
+    contact           String?  @db.LongText
+    tagline           String?
+    mission           String?
+    vision            String?
+    yearsOfExperience Int      @default(0)
+    happyCustomers    Int      @default(0)
+    destinations      Int      @default(0)
+    satifactionRate   Int      @default(0)
+    about             String?  @db.LongText
+    facebook          String?
+    instagram         String?
+    twitter           String?
+    email             String?
+    createdAt         DateTime @default(now())
+    updatedAt         DateTime @updatedAt
+}
+
+model Gallery {
+    id        String   @id @default(uuid())
+    name      String
+    image     String   @db.LongText
+    location  String
+    isActive  Boolean  @default(false)
+    isDeleted Boolean  @default(false)
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 }

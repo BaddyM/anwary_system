@@ -33,17 +33,7 @@ export class CreateBookingDto {
     destinationId: string;
 
     @ApiProperty()
-    @IsString()
-    @IsNotEmpty()
-    checkInDate: string;
-
-    @ApiProperty()
-    @IsString()
-    @IsNotEmpty()
-    checkOutDate: string;
-
-    @ApiProperty()
     @IsBoolean()
     @IsOptional()
-    isActive: boolean;
+    isConfirmed: boolean;
 }

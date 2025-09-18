@@ -10,8 +10,6 @@ export class BookingService {
         const data = await this.prisma.booking.create({
             data: {
                 ...createBookingDto,
-                checkInDate:new Date(createBookingDto.checkInDate),
-                checkOutDate:new Date(createBookingDto.checkOutDate),
             },
         })
         return data;
@@ -23,6 +21,9 @@ export class BookingService {
             take: limit,
             orderBy: {
                 createdAt: "desc",
+            },
+            include:{
+                destination:true,
             }
         });
         return data;

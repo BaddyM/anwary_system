@@ -8,11 +8,11 @@ export class DestinationService {
     constructor(
         @Inject(PrismaService)
         private prisma: PrismaService) { }
-    
-    async create(createDestinationDto:any) {
+
+    async create(createDestinationDto: any) {
         const data = await this.prisma.destinations.create({
             data: {
-                ...createDestinationDto
+                ...createDestinationDto,
             },
         });
         return data;
@@ -24,12 +24,18 @@ export class DestinationService {
             take: limit,
             orderBy: {
                 createdAt: "desc",
+            },
+            include: {
+                Booking: true,
+            },
+            where: {
+                isDeleted: false,
             }
         });
         return data;
     }
 
-    async update(id: string, updateDestinationDto:any) {
+    async update(id: string, updateDestinationDto: any) {
         const data = await this.prisma.destinations.update({
             where: {
                 id,
@@ -40,10 +46,11 @@ export class DestinationService {
     }
 
     async remove(id: string) {
-        const data = await this.prisma.destinations.delete({
-            where: {
-                id,
-            },
+        const data = await this.prisma.destinations.update({
+            where: { id },
+            data: {
+                isDeleted: true,
+            }
         })
         return data;
     }

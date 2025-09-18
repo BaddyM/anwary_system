@@ -1,21 +1,21 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, BadRequestException, Res, Query } from '@nestjs/common';
-import { UserService } from './user.service';
-import { CreateUserDto, LoginDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Res, BadRequestException, Query } from '@nestjs/common';
+import { CompanyDetailsService } from './company-details.service';
+import { CreateCompanyDetailDto } from './dto/create-company-detail.dto';
+import { UpdateCompanyDetailDto } from './dto/update-company-detail.dto';
 import { Response } from 'express';
 import { ApiQuery } from '@nestjs/swagger';
 
-@Controller('user')
-export class UserController {
-    constructor(private readonly userService: UserService) { }
+@Controller('company-details')
+export class CompanyDetailsController {
+    constructor(private readonly companyDetailsService: CompanyDetailsService) { }
 
     @Post()
     async create(
-        @Body() createUserDto: CreateUserDto,
+        @Body() createCompanyDetailDto: CreateCompanyDetailDto,
         @Res() res: Response,
     ) {
         try {
-            const data = await this.userService.create(createUserDto);
+            const data = await this.companyDetailsService.create(createCompanyDetailDto);
             return res.status(200).json({
                 success: true,
                 data: data,
@@ -24,7 +24,7 @@ export class UserController {
             console.log(e);
             throw new BadRequestException({
                 success: false,
-                error: `Error:${e}`
+                error: `Error:${e}`,
             });
         }
     }
@@ -40,7 +40,7 @@ export class UserController {
         try {
             const currentPage = page ?? 1;
             const currentLimit = limit ?? 10;
-            const data = await this.userService.findAll(parseInt(currentPage), parseInt(currentLimit));
+            const data = await this.companyDetailsService.findAll(parseInt(currentPage), parseInt(currentLimit));
             return res.status(200).json({
                 success: true,
                 data: data,
@@ -49,7 +49,7 @@ export class UserController {
             console.log(e);
             throw new BadRequestException({
                 success: false,
-                error: `Error:${e}`
+                error: `Error:${e}`,
             });
         }
     }
@@ -57,11 +57,11 @@ export class UserController {
     @Patch(':id')
     async update(
         @Param('id') id: string,
-        @Body() updateUserDto: UpdateUserDto,
+        @Body() updateCompanyDetailDto: UpdateCompanyDetailDto,
         @Res() res: Response,
     ) {
         try {
-            const data = await this.userService.update(id, updateUserDto);
+            const data = await this.companyDetailsService.update(id, updateCompanyDetailDto);
             return res.status(200).json({
                 success: true,
                 data: data,
@@ -70,7 +70,7 @@ export class UserController {
             console.log(e);
             throw new BadRequestException({
                 success: false,
-                error: `Error:${e}`
+                error: `Error:${e}`,
             });
         }
     }
@@ -81,27 +81,7 @@ export class UserController {
         @Res() res: Response,
     ) {
         try {
-            const data = await this.userService.remove(id);
-            return res.status(200).json({
-                success: true,
-                data: data,
-            });
-        } catch (e) {
-            console.log(e);
-            throw new BadRequestException({
-                success: false,
-                error: `Error:${e}`
-            });
-        }
-    }
-
-    @Post("login")
-    async login(
-        @Body() loginDto: LoginDto,
-        @Res() res: Response,
-    ) {
-        try {
-            const data = await this.userService.login(loginDto.email, loginDto.password);
+            const data = await this.companyDetailsService.remove(id);
             return res.status(200).json({
                 success: true,
                 data: data,

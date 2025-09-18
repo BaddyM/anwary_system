@@ -37,7 +37,22 @@ export class CreateDestinationDto {
     price: string;
 
     @ApiProperty()
+    @IsString()
+    @IsOptional()
+    persons?: string;
+
+    @ApiProperty()
     @IsBoolean()
     @IsOptional()
     isActive?: boolean;
+
+    @ApiProperty()
+    @IsString()
+    @IsNotEmpty()
+    checkInDate: string;
+
+    @ApiProperty()
+    @IsString()
+    @IsNotEmpty()
+    checkOutDate: string;
 }
