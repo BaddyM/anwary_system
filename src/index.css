@@ -166,18 +166,47 @@ All colors MUST be HSL.
   }
   
   .hover-lift {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   .hover-lift:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px -10px hsl(var(--emerald) / 0.3);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 25px 50px -12px hsl(var(--emerald) / 0.4);
   }
   
   .travel-card {
     backdrop-filter: blur(10px);
     border: 1px solid hsl(var(--border));
     box-shadow: 0 8px 32px -8px hsl(var(--emerald) / 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .travel-card:hover {
+    box-shadow: 0 20px 60px -8px hsl(var(--emerald) / 0.25);
+    border-color: hsl(var(--emerald) / 0.3);
+  }
+  
+  .card-image-hover {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-image-hover:hover {
+    transform: scale(1.1);
+  }
+  
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .animate-on-scroll.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .stagger-animation {
+    animation-fill-mode: both;
   }
 }
 

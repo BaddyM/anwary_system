@@ -12,6 +12,7 @@ import {
   Mountain,
   Waves
 } from "lucide-react";
+import { useStaggeredAnimation } from "@/hooks/useScrollAnimation";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import hero3 from "@/assets/hero-3.jpg";
@@ -101,19 +102,28 @@ const destinations = [
 ];
 
 const Destinations = () => {
+  const [containerRef, visibleItems] = useStaggeredAnimation(destinations.length, 150);
+
+  const getAnimationClass = (index: number) => {
+    if (visibleItems.includes(index)) {
+      return "animate-slide-up";
+    }
+    return "opacity-0 translate-y-8";
+  };
+
   return (
     <div className="min-h-screen pt-24">
       {/* Header */}
       <section className="py-16 bg-pearl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-serif text-5xl font-bold text-forest mb-6">
+          <h1 className="font-serif text-5xl font-bold text-forest mb-6 animate-fade-in">
             Luxury Destinations
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8 animate-fade-in">
             Handpicked destinations that offer the perfect blend of adventure, luxury, and cultural immersion. 
             Each journey is crafted to create memories that will last a lifetime.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-4 animate-bounce-in">
             <Badge variant="outline" className="px-4 py-2 text-emerald border-emerald">
               <MapPin className="w-4 h-4 mr-2" />
               150+ Destinations
@@ -133,23 +143,33 @@ const Destinations = () => {
       {/* Destinations Grid */}
       <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {destinations.map((destination) => (
-              <Card key={destination.id} className="group hover-lift travel-card overflow-hidden">
+          <div 
+            ref={containerRef}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {destinations.map((destination, index) => (
+              <Card 
+                key={destination.id} 
+                className={`group hover-lift travel-card overflow-hidden transition-all duration-500 ${getAnimationClass(index)}`}
+                style={{ 
+                  animationDelay: `${index * 150}ms`,
+                  animationFillMode: 'both'
+                }}
+              >
                 <CardContent className="p-0">
                   {/* Image */}
                   <div className="relative overflow-hidden">
                     <img
                       src={destination.image}
                       alt={destination.name}
-                      className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                      className="w-full h-64 object-cover card-image-hover"
                     />
-                    <div className="absolute inset-0 gradient-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <Badge className="absolute top-4 left-4 gradient-gold text-forest">
+                    <div className="absolute inset-0 gradient-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <Badge className="absolute top-4 left-4 gradient-gold text-forest animate-float">
                       {destination.category}
                     </Badge>
-                    <div className="absolute top-4 right-4 flex items-center bg-white/20 backdrop-blur-sm rounded-full px-3 py-1">
-                      <Star className="w-4 h-4 text-gold fill-current mr-1" />
+                    <div className="absolute top-4 right-4 flex items-center bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 transition-all duration-300 group-hover:bg-white/30">
+                      <Star className="w-4 h-4 text-gold-bright fill-current mr-1" />
                       <span className="text-white font-medium">{destination.rating}</span>
                     </div>
                   </div>
@@ -157,16 +177,16 @@ const Destinations = () => {
                   {/* Content */}
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-3">
-                      <h3 className="font-serif text-xl font-semibold text-forest">
+                      <h3 className="font-serif text-xl font-semibold text-forest group-hover:text-emerald transition-colors duration-300">
                         {destination.name}
                       </h3>
-                      <destination.icon className="w-5 h-5 text-emerald" />
+                      <destination.icon className="w-5 h-5 text-emerald group-hover:scale-110 transition-transform duration-300" />
                     </div>
                     
                     <div className="flex items-center text-muted-foreground mb-3">
-                      <MapPin className="w-4 h-4 mr-2" />
+                      <MapPin className="w-4 h-4 mr-2 text-gold" />
                       <span className="mr-4">{destination.location}</span>
-                      <Calendar className="w-4 h-4 mr-2" />
+                      <Calendar className="w-4 h-4 mr-2 text-gold" />
                       <span>{destination.duration}</span>
                     </div>
 
@@ -177,8 +197,12 @@ const Destinations = () => {
                     {/* Highlights */}
                     <div className="mb-4">
                       <div className="flex flex-wrap gap-2">
-                        {destination.highlights.slice(0, 3).map((highlight, index) => (
-                          <Badge key={index} variant="secondary" className="text-xs">
+                        {destination.highlights.slice(0, 3).map((highlight, highlightIndex) => (
+                          <Badge 
+                            key={highlightIndex} 
+                            variant="secondary" 
+                            className="text-xs transition-all duration-300 hover:bg-emerald hover:text-white"
+                          >
                             {highlight}
                           </Badge>
                         ))}
@@ -192,12 +216,12 @@ const Destinations = () => {
 
                     {/* Price and CTA */}
                     <div className="flex items-center justify-between pt-4 border-t border-border">
-                      <div>
+                      <div className="group-hover:scale-105 transition-transform duration-300">
                         <span className="text-2xl font-bold text-emerald">{destination.price}</span>
                         <span className="text-muted-foreground text-sm ml-1">per person</span>
                       </div>
                       <Button 
-                        className="gradient-hero text-white hover:opacity-90"
+                        className="gradient-gold text-forest hover:opacity-90 transition-all duration-300 hover:scale-105"
                         asChild
                       >
                         <Link to="/booking">Book Now</Link>
