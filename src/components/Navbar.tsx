@@ -71,8 +71,8 @@ const navigation = [
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2 group">
-              <div className="p-3 rounded-full gradient-emerald shadow-lg group-hover:shadow-xl transition-shadow">
-                <MapPin className="w-6 h-6 text-white" />
+              <div className="p-3">
+                <img src="/logo.jpg" className="w-10 h-10 rounded-full"/>
               </div>
               <div className="flex flex-col">
                 <span className="font-serif text-2xl font-bold text-gradient-gold">Anwary</span>
