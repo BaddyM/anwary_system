@@ -1,10 +1,11 @@
-import { 
-  Home, 
-  Users, 
-  MapPin, 
-  Calendar, 
+import {
+  Home,
+  Users,
+  MapPin,
+  Calendar,
   Mail,
-  Settings
+  Settings,
+  GalleryHorizontalEndIcon,
 } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 
@@ -25,12 +26,11 @@ const mainItems = [
   { title: "About", url: "/about", icon: Users },
   { title: "Destinations", url: "/destinations", icon: MapPin },
   { title: "Bookings", url: "/bookings", icon: Calendar },
+  { title: "Gallery", url: "/gallery", icon: GalleryHorizontalEndIcon },
   { title: "Contact", url: "/contact", icon: Mail },
 ];
 
-const settingsItems = [
-  { title: "Settings", url: "/settings", icon: Settings },
-];
+const settingsItems = [{ title: "Settings", url: "/settings", icon: Settings }];
 
 export function AppSidebar() {
   const { state } = useSidebar();
@@ -40,8 +40,8 @@ export function AppSidebar() {
 
   const isActive = (path: string) => currentPath === path;
   const getNavCls = ({ isActive }: { isActive: boolean }) =>
-    isActive 
-      ? "bg-accent text-accent-foreground font-medium" 
+    isActive
+      ? "bg-accent text-accent-foreground font-medium"
       : "hover:bg-accent/10 text-muted-foreground hover:text-foreground";
 
   return (
@@ -49,8 +49,8 @@ export function AppSidebar() {
       <SidebarContent className="bg-card border-r">
         <div className="p-4">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">W</span>
+            <div className="w-16 h-16">
+              <img src="/logo.jpg" />
             </div>
             {!collapsed && (
               <div>
@@ -80,9 +80,9 @@ export function AppSidebar() {
         </SidebarGroup>
 
         <SidebarGroup>
-          <SidebarGroupLabel>System</SidebarGroupLabel>
+          {/* <SidebarGroupLabel>System</SidebarGroupLabel> */}
           <SidebarGroupContent>
-            <SidebarMenu>
+            <SidebarMenu className="hidden">
               {settingsItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>

@@ -1,22 +1,28 @@
-import React, { useState } from 'react';
-import { useAuth } from '@/contexts/AuthContext';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { useToast } from '@/hooks/use-toast';
-import { Eye, EyeOff, User, Lock } from 'lucide-react';
+import React, { useState } from "react";
+import { useAuth } from "@/contexts/AuthContext";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { useToast } from "@/hooks/use-toast";
+import { Eye, EyeOff, User, Lock } from "lucide-react";
 
 export default function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const { login, isLoading } = useAuth();
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!email || !password) {
       toast({
         title: "Error",
@@ -27,7 +33,7 @@ export default function Login() {
     }
 
     const success = await login(email, password);
-    
+
     if (!success) {
       toast({
         title: "Login Failed",
@@ -43,9 +49,9 @@ export default function Login() {
   };
 
   const demoAccounts = [
-    { email: 'admin@example.com', password: 'admin123', role: 'Administrator' },
-    { email: 'user@example.com', password: 'user123', role: 'User' },
-    { email: 'demo@example.com', password: 'demo123', role: 'Demo' }
+    { email: "admin@example.com", password: "admin123", role: "Administrator" },
+    { email: "user@example.com", password: "user123", role: "User" },
+    { email: "demo@example.com", password: "demo123", role: "Demo" },
   ];
 
   const fillDemoAccount = (demoEmail: string, demoPassword: string) => {
@@ -58,10 +64,12 @@ export default function Login() {
       <div className="w-full max-w-md space-y-6">
         <div className="text-center space-y-3">
           <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mx-auto shadow-lg">
-            <span className="text-primary-foreground font-bold text-2xl">D</span>
+            <img src="/logo.jpg" className="w-50 h-50"/>
           </div>
           <h1 className="text-3xl font-bold text-foreground">Welcome Back</h1>
-          <p className="text-muted-foreground">Sign in to access your dashboard</p>
+          <p className="text-muted-foreground">
+            Sign in to access your dashboard
+          </p>
         </div>
 
         <Card className="shadow-xl border-0 bg-card/80 backdrop-blur-sm">
@@ -88,7 +96,7 @@ export default function Login() {
                   />
                 </div>
               </div>
-              
+
               <div className="space-y-2">
                 <Label htmlFor="password">Password</Label>
                 <div className="relative">
@@ -119,8 +127,8 @@ export default function Login() {
                 </div>
               </div>
 
-              <Button 
-                type="submit" 
+              <Button
+                type="submit"
                 className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 transition-all duration-200"
                 disabled={isLoading}
               >
@@ -130,7 +138,7 @@ export default function Login() {
           </CardContent>
         </Card>
 
-        <Card className="shadow-lg border-0 bg-card/60 backdrop-blur-sm">
+        <Card className="shadow-lg border-0 bg-card/60 backdrop-blur-sm hidden">
           <CardHeader>
             <CardTitle className="text-lg">Demo Accounts</CardTitle>
             <CardDescription>Click to auto-fill credentials</CardDescription>
@@ -146,7 +154,9 @@ export default function Login() {
               >
                 <div>
                   <div className="font-medium">{account.email}</div>
-                  <div className="text-xs text-muted-foreground">{account.role}</div>
+                  <div className="text-xs text-muted-foreground">
+                    {account.role}
+                  </div>
                 </div>
               </Button>
             ))}
