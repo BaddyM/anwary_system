@@ -6,7 +6,9 @@ export const baseUrl = "https://anwary-backend.pearlnestestates.com";
 export const apiSlice = createApi({
     reducerPath: 'api', // unique key in store
     baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
+
     tagTypes: ["Destinations", "Contact", "Booking", "Gallery"],
+    
     endpoints: (builder) => ({
         // Destinations
         getDestinations: builder.query({
