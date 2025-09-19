@@ -50,7 +50,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="text-center max-w-2xl mx-auto">
             <h3 className="font-serif text-2xl font-semibold mb-4">
-              Stay Updated with Anwary Travel
+              Stay Updated with Anwaary Travel
             </h3>
             <p className="text-white/80 mb-6">
               Subscribe to our newsletter for exclusive deals, travel tips, and
@@ -94,11 +94,11 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center space-x-2 mb-6">
               <div className="p-3">
-                <img src="/logo.jpg" className="w-10 h-10 rounded-full"/>
+                <img src="/logo.jpg" className="w-10 h-10 rounded-full" />
               </div>
               <div className="flex flex-col">
                 <span className="font-serif text-2xl font-bold text-gradient-gold">
-                  Anwary
+                  Anwaary
                 </span>
                 <span className="text-sm text-white/80 -mt-1">Travel</span>
               </div>
@@ -167,7 +167,10 @@ const Footer = () => {
                     to="/destinations"
                     className="text-white/80 hover:text-gold transition-colors duration-300"
                   >
-                    {destination}
+                    <div className="flex items-center gap-1">
+                      <MapPin className="w-4 h-4 text-gold-bright" />{" "}
+                      {destination}
+                    </div>
                   </Link>
                 </li>
               ))}
@@ -188,17 +191,25 @@ const Footer = () => {
             </ul>
 
             <div className="space-y-3">
-              <div className="flex items-center space-x-3">
-                <Phone className="w-4 h-4 text-gold-bright" />
-                <span className="text-white/80">+1 (555) 123-4567</span>
+              <div className="items-center space-x-1">
+                <div className="flex gap-2 items-center mb-2">
+                  <Phone className="w-4 h-4 text-gold-bright" />
+                  <a href="tel:+256 782-808-261"><span className="text-white/80">+256 782-808-261</span></a>
+                </div>
+                <div className="flex gap-2 items-center">
+                  <Phone className="w-4 h-4 text-gold-bright" />
+                  <a href="tel:+256 702-029-143"><span className="text-white/80">+256 702-029-143</span></a>
+                </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 text-gold-bright" />
-                <span className="text-white/80">info@anwarytravel.com</span>
+                <span className="text-white/80">anwaarytravel@gmail.com</span>
               </div>
               <div className="flex items-center space-x-3">
-                <MapPin className="w-4 h-4 text-gold-bright" />
-                <span className="text-white/80">New York, NY 10001</span>
+                <MapPin className="w-7 h-7 text-gold-bright" />
+                <span className="text-white/80">
+                  AHA Towers, 1st floor, Plot 7 Lourdel Road Nakasero, Kampala
+                </span>
               </div>
             </div>
           </div>
@@ -210,7 +221,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex items-center space-x-1 text-white/80">
-              <span>© {new Date().getFullYear()} Anwary Travel.</span>
+              <span>© {new Date().getFullYear()} Anwaary Travel.</span>
             </div>
             <div className="flex items-center space-x-6 text-sm text-white/80">
               <Link

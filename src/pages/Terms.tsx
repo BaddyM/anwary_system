@@ -36,7 +36,7 @@ const Terms = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  By accessing and using Anwary Travel's website and services, you accept and agree to be bound by 
+                  By accessing and using Anwaary Travel's website and services, you accept and agree to be bound by 
                   the terms and provision of this agreement. If you do not agree to abide by the above, please do 
                   not use this service.
                 </p>
@@ -51,7 +51,7 @@ const Terms = () => {
                 <div>
                   <h4 className="font-semibold text-emerald mb-2">Travel Planning Services</h4>
                   <p className="text-muted-foreground">
-                    Anwary Travel provides luxury travel planning, booking, and concierge services for 
+                    Anwaary Travel provides luxury travel planning, booking, and concierge services for 
                     destinations worldwide. Our services include but are not limited to accommodation booking, 
                     transportation arrangements, and activity planning.
                   </p>
@@ -75,7 +75,7 @@ const Terms = () => {
                   <h4 className="font-semibold text-emerald mb-2">Booking Process</h4>
                   <p className="text-muted-foreground">
                     All bookings are subject to availability and confirmation. A booking is only confirmed 
-                    once you receive written confirmation from Anwary Travel and required payments have been processed.
+                    once you receive written confirmation from Anwaary Travel and required payments have been processed.
                   </p>
                 </div>
                 <div>
@@ -113,7 +113,7 @@ const Terms = () => {
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-emerald mb-2">Cancellation by Anwary Travel</h4>
+                    <h4 className="font-semibold text-emerald mb-2">Cancellation by Anwaary Travel</h4>
                     <p className="text-muted-foreground">
                       In rare circumstances, we may need to cancel your trip due to insufficient enrollment, 
                       natural disasters, or other unforeseen events. In such cases, we will provide a full refund 
@@ -157,7 +157,7 @@ const Terms = () => {
                   <div>
                     <h4 className="font-semibold text-emerald mb-2">Limitation of Liability</h4>
                     <p className="text-muted-foreground">
-                      Anwary Travel acts as an agent for suppliers and is not liable for their acts or omissions. 
+                      Anwaary Travel acts as an agent for suppliers and is not liable for their acts or omissions. 
                       Our liability is limited to the cost of the services provided and we recommend comprehensive 
                       travel insurance.
                     </p>
@@ -179,7 +179,7 @@ const Terms = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  All content on our website, including text, graphics, logos, and images, is owned by Anwary Travel 
+                  All content on our website, including text, graphics, logos, and images, is owned by Anwaary Travel 
                   and protected by copyright laws. You may not reproduce, distribute, or create derivative works 
                   without our written permission.
                 </p>

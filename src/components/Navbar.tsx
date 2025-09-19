@@ -29,14 +29,15 @@ const navigation = [
               className="flex items-center space-x-2 hover:text-gold-light transition-colors"
             >
               <Mail className="w-4 h-4" />
-              <span>info@anwarytravel.com</span>
+              <span>anwaarytravel@gmail.com</span>
             </a>
             <a 
               href="tel:+15551234567" 
               className="flex items-center space-x-2 hover:text-gold-light transition-colors"
             >
               <Phone className="w-4 h-4" />
-              <span>+1 (555) 123-4567</span>
+              <span>+256 782-808-261</span>
+              <span>+256 702-029-143</span>
             </a>
           </div>
           <div className="flex items-center space-x-4">
@@ -75,7 +76,7 @@ const navigation = [
                 <img src="/logo.jpg" className="w-10 h-10 rounded-full"/>
               </div>
               <div className="flex flex-col">
-                <span className="font-serif text-2xl font-bold text-gradient-gold">Anwary</span>
+                <span className="font-serif text-2xl font-bold text-gradient-gold">Anwaary</span>
                 <span className="text-sm text-muted-foreground -mt-1">Travel</span>
               </div>
             </Link>

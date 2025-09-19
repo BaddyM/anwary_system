@@ -46,7 +46,7 @@ const Home = () => {
   const [servicesRef, servicesVisible] = useScrollAnimation();
   const [destinationsRef, destinationsVisible] = useScrollAnimation();
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(13);
+  const [limit, setLimit] = useState(3);
   const {
     data: destinations,
     isLoading,
@@ -156,7 +156,7 @@ const Home = () => {
               </h2>
               <div className="space-y-6 text-lg text-muted-foreground">
                 <p>
-                  Welcome to Anwary Travel, where extraordinary journeys begin.
+                  Welcome to Anwaary Travel, where extraordinary journeys begin.
                   For over two decades, we've been crafting bespoke travel
                   experiences that go beyond the ordinary, creating memories
                   that last a lifetime.
@@ -194,7 +194,7 @@ const Home = () => {
             }`}
           >
             <h2 className="text-4xl font-bold text-forest mb-4">
-              Why Choose Anwary Travel?
+              Why Choose Anwaary Travel?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               We create extraordinary journeys that inspire, transform, and

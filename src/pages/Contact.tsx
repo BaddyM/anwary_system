@@ -4,19 +4,26 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { 
-  MapPin, 
-  Phone, 
-  Mail, 
+import {
+  MapPin,
+  Phone,
+  Mail,
   Clock,
   Send,
   MessageCircle,
   Calendar,
-  Users
+  Users,
 } from "lucide-react";
 import GoogleMap from "@/components/GoogleMap";
+import { useAddContactMutation } from "@/api/apiSlice";
 
 const inquiryTypes = [
   "General Information",
@@ -26,47 +33,46 @@ const inquiryTypes = [
   "Corporate Travel",
   "Travel Insurance",
   "Booking Changes",
-  "Other"
+  "Other",
 ];
 
+export interface Contact {
+  name: string;
+  contact: string;
+  message: String;
+}
+
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    inquiryType: "",
-    subject: "",
-    message: ""
-  });
-  
+  const [formData, setFormData] = useState<Contact>();
+  const [addContact] = useAddContactMutation();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
+    const res = await addContact(formData);
+    e.target.message.value = "";
+    e.target.phone.value = "";
+    e.target.name.value = "";
+    setFormData(null);
+    setIsSubmitting(false);
+    if (res.error) {
       toast({
-        title: "Message Sent Successfully!",
-        description: "Thank you for contacting us. We'll get back to you within 24 hours.",
+        title: "Error",
+        description: "Sorry, something went wrong!",
+        variant: "destructive",
       });
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        inquiryType: "",
-        subject: "",
-        message: ""
+    } else {
+      toast({
+        title: "Success",
+        description: "Successfully sent message.",
       });
-    }, 2000);
+    }
   };
 
   const updateFormData = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   return (
@@ -78,8 +84,8 @@ const Contact = () => {
             Get in Touch
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Ready to plan your next adventure? Our travel experts are here to help you 
-            create unforgettable memories. Contact us today!
+            Ready to plan your next adventure? Our travel experts are here to
+            help you create unforgettable memories. Contact us today!
           </p>
         </div>
       </section>
@@ -97,77 +103,53 @@ const Contact = () => {
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="name">Full Name *</Label>
-                      <Input
-                        id="name"
-                        value={formData.name}
-                        onChange={(e) => updateFormData("name", e.target.value)}
-                        required
-                        className="mt-1"
-                        placeholder="Your full name"
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="email">Email Address *</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => updateFormData("email", e.target.value)}
-                        required
-                        className="mt-1"
-                        placeholder="your@email.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="phone">Phone Number</Label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        value={formData.phone}
-                        onChange={(e) => updateFormData("phone", e.target.value)}
-                        className="mt-1"
-                        placeholder="+1 (555) 123-4567"
-                      />
-                    </div>
-                    <div>
-                      <Label>Inquiry Type</Label>
-                      <Select value={formData.inquiryType} onValueChange={(value) => updateFormData("inquiryType", value)}>
-                        <SelectTrigger className="mt-1">
-                          <SelectValue placeholder="Select inquiry type" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {inquiryTypes.map((type) => (
-                            <SelectItem key={type} value={type}>{type}</SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div>
-
                   <div>
-                    <Label htmlFor="subject">Subject *</Label>
+                    <Label htmlFor="name">Full Name *</Label>
                     <Input
-                      id="subject"
-                      value={formData.subject}
-                      onChange={(e) => updateFormData("subject", e.target.value)}
+                      id="name"
+                      name="name"
+                      // value={formData.name}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          name: e.target.value,
+                        })
+                      }
                       required
                       className="mt-1"
-                      placeholder="Brief description of your inquiry"
+                      placeholder="Your full name"
                     />
                   </div>
-
+                  <div>
+                    <Label htmlFor="phone">Phone Number</Label>
+                    <Input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      // value={formData.phone}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          contact: e.target.value,
+                        })
+                      }
+                      className="mt-1"
+                      placeholder="Add Contact"
+                      required
+                    />
+                  </div>
                   <div>
                     <Label htmlFor="message">Message *</Label>
                     <Textarea
                       id="message"
-                      value={formData.message}
-                      onChange={(e) => updateFormData("message", e.target.value)}
+                      name="message"
+                      //   value={formData.message}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          message: e.target.value,
+                        })
+                      }
                       required
                       className="mt-1"
                       rows={6}
@@ -175,8 +157,8 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button 
-                    type="submit" 
+                  <Button
+                    type="submit"
                     size="lg"
                     disabled={isSubmitting}
                     className="w-full gradient-hero text-white hover:opacity-90"
@@ -213,11 +195,11 @@ const Contact = () => {
                     <MapPin className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-forest mb-1">Visit Our Office</h4>
+                    <h4 className="font-semibold text-forest mb-1">
+                      Visit Our Office
+                    </h4>
                     <p className="text-muted-foreground">
-                      123 Travel Plaza, Suite 456<br />
-                      New York, NY 10001<br />
-                      United States
+                      AHA Towers, 1st floor, Plot 7 Lourdel Road Nakasero, Kampala
                     </p>
                   </div>
                 </div>
@@ -229,9 +211,8 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold text-forest mb-1">Call Us</h4>
                     <p className="text-muted-foreground">
-                      Main: +1 (555) 123-4567<br />
-                      WhatsApp: +1 (555) 987-6543<br />
-                      Emergency: +1 (555) 911-HELP
+                      +256 782-808-261 <br/>
+                      +256 702-029-143
                     </p>
                   </div>
                 </div>
@@ -243,8 +224,10 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold text-forest mb-1">Email Us</h4>
                     <p className="text-muted-foreground">
-                      General: info@anwarytravel.com<br />
-                      Bookings: bookings@anwarytravel.com<br />
+                      General: anwaarytravel@gmail.com
+                      <br />
+                      Bookings: bookings@anwarytravel.com
+                      <br />
                       Support: support@anwarytravel.com
                     </p>
                   </div>
@@ -255,12 +238,19 @@ const Contact = () => {
                     <Clock className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-forest mb-1">Business Hours</h4>
+                    <h4 className="font-semibold text-forest mb-1">
+                      Business Hours
+                    </h4>
                     <p className="text-muted-foreground">
-                      Monday - Friday: 9:00 AM - 7:00 PM<br />
-                      Saturday: 10:00 AM - 6:00 PM<br />
-                      Sunday: 11:00 AM - 4:00 PM<br />
-                      <span className="text-emerald font-medium">EST Time Zone</span>
+                      Monday - Friday: 9:00 AM - 7:00 PM
+                      <br />
+                      Saturday: 10:00 AM - 6:00 PM
+                      <br />
+                      Sunday: 11:00 AM - 4:00 PM
+                      <br />
+                      <span className="text-emerald font-medium">
+                        EST Time Zone
+                      </span>
                     </p>
                   </div>
                 </div>
@@ -275,7 +265,7 @@ const Contact = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <Button 
+                <Button
                   className="w-full gradient-hero text-white hover:opacity-90"
                   asChild
                 >
@@ -284,7 +274,7 @@ const Contact = () => {
                     Book a Consultation
                   </a>
                 </Button>
-                <Button 
+                <Button
                   variant="outline"
                   className="w-full border-emerald text-emerald hover:bg-emerald hover:text-white"
                   asChild
@@ -306,16 +296,31 @@ const Contact = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <h4 className="font-semibold text-forest mb-1">How far in advance should I book?</h4>
-                  <p className="text-sm text-muted-foreground">We recommend booking 3-6 months in advance for international trips.</p>
+                  <h4 className="font-semibold text-forest mb-1">
+                    How far in advance should I book?
+                  </h4>
+                  <p className="text-sm text-muted-foreground">
+                    We recommend booking 3-6 months in advance for international
+                    trips.
+                  </p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-forest mb-1">Do you offer travel insurance?</h4>
-                  <p className="text-sm text-muted-foreground">Yes, we provide comprehensive travel insurance options for all trips.</p>
+                  <h4 className="font-semibold text-forest mb-1">
+                    Do you offer travel insurance?
+                  </h4>
+                  <p className="text-sm text-muted-foreground">
+                    Yes, we provide comprehensive travel insurance options for
+                    all trips.
+                  </p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-forest mb-1">Can you arrange group travel?</h4>
-                  <p className="text-sm text-muted-foreground">Absolutely! We specialize in group trips with special rates and custom itineraries.</p>
+                  <h4 className="font-semibold text-forest mb-1">
+                    Can you arrange group travel?
+                  </h4>
+                  <p className="text-sm text-muted-foreground">
+                    Absolutely! We specialize in group trips with special rates
+                    and custom itineraries.
+                  </p>
                 </div>
               </CardContent>
             </Card>

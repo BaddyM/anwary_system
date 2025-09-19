@@ -4,32 +4,44 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Calendar } from "@/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
-import { 
-  CalendarIcon, 
-  Users, 
-  MapPin, 
-  Phone, 
-  Mail, 
+import {
+  CalendarIcon,
+  Users,
+  MapPin,
+  Phone,
+  Mail,
   CheckCircle,
   Plane,
   Clock,
-  Shield
+  Shield,
 } from "lucide-react";
 import { format } from "date-fns";
+import { Destination } from "./Home";
+import { useAddBookingMutation, useGetDestinationsQuery } from "@/api/apiSlice";
 
 const destinations = [
   "Maldives Paradise",
-  "Swiss Alps Adventure", 
+  "Swiss Alps Adventure",
   "Angkor Wat Explorer",
   "African Safari Expedition",
   "Santorini Romance",
   "Northern Lights Quest",
-  "Custom Destination"
+  "Custom Destination",
 ];
 
 const travelTypes = [
@@ -39,57 +51,63 @@ const travelTypes = [
   "Luxury Escape",
   "Cultural Journey",
   "Wildlife Safari",
-  "Beach Getaway"
+  "Beach Getaway",
 ];
 
+export interface Booking {
+  id?: string;
+  fname: string;
+  lname: string;
+  contact: string;
+  email: string;
+  memo?: string;
+  destination: Destination;
+  destinationId?: string;
+  isConfirmed?: boolean;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
 const Booking = () => {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    destination: "",
-    travelType: "",
-    travelers: "2",
-    departureDate: undefined as Date | undefined,
-    duration: "",
-    budget: "",
-    specialRequests: ""
-  });
-  
+  const [formData, setFormData] = useState<Booking>();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const [createBooking] = useAddBookingMutation();
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(10);
+  const { data, isSuccess, isError, isLoading } = useGetDestinationsQuery({
+    page,
+    limit,
+  });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
+    const res = await createBooking(formData);
+    setIsSubmitting(false);
+    setFormData(null);
+    e.target.lname.value = "";
+    e.target.fname.value = "";
+    e.target.email.value = "";
+    e.target.phone.value = "";
+    e.target.memo.value = "";
+    e.target.destination.value = "";
+    if (res.error) {
       toast({
-        title: "Booking Request Submitted!",
-        description: "Our travel experts will contact you within 24 hours to discuss your dream vacation.",
+        title: "Error",
+        description: "Sorry, something went wrong!",
+        variant: "destructive",
       });
-      // Reset form
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        destination: "",
-        travelType: "",
-        travelers: "2",
-        departureDate: undefined,
-        duration: "",
-        budget: "",
-        specialRequests: ""
+    } else {
+      toast({
+        title: "Success",
+        description: "Successfully created booking.",
       });
-    }, 2000);
+    }
   };
 
   const updateFormData = (field: string, value: any) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   return (
@@ -101,8 +119,8 @@ const Booking = () => {
             Book Your Dream Journey
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Tell us about your travel dreams and our experts will create a personalized 
-            luxury experience tailored just for you.
+            Tell us about your travel dreams and our experts will create a
+            personalized luxury experience tailored just for you.
           </p>
         </div>
 
@@ -123,8 +141,15 @@ const Booking = () => {
                       <Label htmlFor="firstName">First Name *</Label>
                       <Input
                         id="firstName"
-                        value={formData.firstName}
-                        onChange={(e) => updateFormData("firstName", e.target.value)}
+                        placeholder="Enter First Name"
+                        name="fname"
+                        // value={formData.fname}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            fname: e.target.value,
+                          })
+                        }
                         required
                         className="mt-1"
                       />
@@ -133,8 +158,15 @@ const Booking = () => {
                       <Label htmlFor="lastName">Last Name *</Label>
                       <Input
                         id="lastName"
-                        value={formData.lastName}
-                        onChange={(e) => updateFormData("lastName", e.target.value)}
+                        placeholder="Enter Last Name"
+                        name="lname"
+                        // value={formData.lname}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            lname: e.target.value,
+                          })
+                        }
                         required
                         className="mt-1"
                       />
@@ -147,8 +179,15 @@ const Booking = () => {
                       <Input
                         id="email"
                         type="email"
-                        value={formData.email}
-                        onChange={(e) => updateFormData("email", e.target.value)}
+                        name="email"
+                        placeholder="Enter Email"
+                        // value={formData.email}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            email: e.target.value,
+                          })
+                        }
                         required
                         className="mt-1"
                       />
@@ -158,125 +197,74 @@ const Booking = () => {
                       <Input
                         id="phone"
                         type="tel"
-                        value={formData.phone}
-                        onChange={(e) => updateFormData("phone", e.target.value)}
+                        name="phone"
+                        placeholder="Enter Phone Number"
+                        // value={formData.contact}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            contact: e.target.value,
+                          })
+                        }
+                        required
                         className="mt-1"
                       />
                     </div>
                   </div>
 
                   {/* Travel Preferences */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="">
                     <div>
                       <Label>Preferred Destination *</Label>
-                      <Select value={formData.destination} onValueChange={(value) => updateFormData("destination", value)}>
+                      <Select
+                        // value={formData.destination.id}
+                        required
+                        name="destination"
+                        onValueChange={(value) =>
+                          setFormData({
+                            ...formData,
+                            destinationId: value,
+                          })
+                        }
+                      >
                         <SelectTrigger className="mt-1">
                           <SelectValue placeholder="Choose a destination" />
                         </SelectTrigger>
                         <SelectContent>
-                          {destinations.map((dest) => (
-                            <SelectItem key={dest} value={dest}>{dest}</SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    <div>
-                      <Label>Travel Type</Label>
-                      <Select value={formData.travelType} onValueChange={(value) => updateFormData("travelType", value)}>
-                        <SelectTrigger className="mt-1">
-                          <SelectValue placeholder="Select travel type" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {travelTypes.map((type) => (
-                            <SelectItem key={type} value={type}>{type}</SelectItem>
-                          ))}
+                          {data &&
+                            data.data.map(
+                              (dest: Destination, index: number) => (
+                                <SelectItem key={index} value={dest.id}>
+                                  {dest.title}
+                                </SelectItem>
+                              )
+                            )}
                         </SelectContent>
                       </Select>
                     </div>
                   </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                      <Label>Number of Travelers *</Label>
-                      <Select value={formData.travelers} onValueChange={(value) => updateFormData("travelers", value)}>
-                        <SelectTrigger className="mt-1">
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {[1,2,3,4,5,6,7,8].map((num) => (
-                            <SelectItem key={num} value={num.toString()}>{num} {num === 1 ? 'Traveler' : 'Travelers'}</SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    <div>
-                      <Label>Departure Date</Label>
-                      <Popover>
-                        <PopoverTrigger asChild>
-                          <Button
-                            variant="outline"
-                            className="w-full mt-1 justify-start text-left font-normal"
-                          >
-                            <CalendarIcon className="mr-2 h-4 w-4" />
-                            {formData.departureDate ? format(formData.departureDate, "PPP") : "Pick a date"}
-                          </Button>
-                        </PopoverTrigger>
-                        <PopoverContent className="w-auto p-0" align="start">
-                          <Calendar
-                            mode="single"
-                            selected={formData.departureDate}
-                            onSelect={(date) => updateFormData("departureDate", date)}
-                            disabled={(date) => date < new Date()}
-                            initialFocus
-                          />
-                        </PopoverContent>
-                      </Popover>
-                    </div>
-                    <div>
-                      <Label>Duration</Label>
-                      <Select value={formData.duration} onValueChange={(value) => updateFormData("duration", value)}>
-                        <SelectTrigger className="mt-1">
-                          <SelectValue placeholder="Select duration" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="3-5">3-5 Days</SelectItem>
-                          <SelectItem value="6-8">6-8 Days</SelectItem>
-                          <SelectItem value="9-12">9-12 Days</SelectItem>
-                          <SelectItem value="13+">13+ Days</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div>
-
                   <div>
-                    <Label>Budget Range (per person)</Label>
-                    <Select value={formData.budget} onValueChange={(value) => updateFormData("budget", value)}>
-                      <SelectTrigger className="mt-1">
-                        <SelectValue placeholder="Select budget range" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="2000-5000">$2,000 - $5,000</SelectItem>
-                        <SelectItem value="5000-10000">$5,000 - $10,000</SelectItem>
-                        <SelectItem value="10000-20000">$10,000 - $20,000</SelectItem>
-                        <SelectItem value="20000+">$20,000+</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div>
-                    <Label htmlFor="specialRequests">Special Requests or Preferences</Label>
+                    <Label htmlFor="specialRequests">
+                      Special Requests or Preferences
+                    </Label>
                     <Textarea
                       id="specialRequests"
-                      value={formData.specialRequests}
-                      onChange={(e) => updateFormData("specialRequests", e.target.value)}
+                      name="memo"
+                    //   value={formData.memo}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          memo: e.target.value,
+                        })
+                      }
                       placeholder="Tell us about any specific interests, dietary requirements, accessibility needs, or special occasions..."
                       className="mt-1"
                       rows={4}
                     />
                   </div>
 
-                  <Button 
-                    type="submit" 
+                  <Button
+                    type="submit"
                     size="lg"
                     disabled={isSubmitting}
                     className="w-full gradient-hero text-white hover:opacity-90"
@@ -304,29 +292,39 @@ const Booking = () => {
             <Card className="travel-card">
               <CardHeader>
                 <CardTitle className="font-serif text-xl text-forest">
-                  Why Book With Anwary Travel?
+                  Why Book With Anwaary Travel?
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="w-5 h-5 text-emerald mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-forest">Expert Planning</h4>
-                    <p className="text-sm text-muted-foreground">Personalized itineraries crafted by travel experts</p>
+                    <h4 className="font-semibold text-forest">
+                      Expert Planning
+                    </h4>
+                    <p className="text-sm text-muted-foreground">
+                      Personalized itineraries crafted by travel experts
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <Shield className="w-5 h-5 text-emerald mt-0.5" />
                   <div>
                     <h4 className="font-semibold text-forest">24/7 Support</h4>
-                    <p className="text-sm text-muted-foreground">Round-the-clock assistance during your journey</p>
+                    <p className="text-sm text-muted-foreground">
+                      Round-the-clock assistance during your journey
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <Clock className="w-5 h-5 text-emerald mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-forest">Quick Response</h4>
-                    <p className="text-sm text-muted-foreground">Response within 24 hours guaranteed</p>
+                    <h4 className="font-semibold text-forest">
+                      Quick Response
+                    </h4>
+                    <p className="text-sm text-muted-foreground">
+                      Response within 24 hours guaranteed
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -344,28 +342,35 @@ const Booking = () => {
                   <Phone className="w-5 h-5 text-emerald" />
                   <div>
                     <p className="font-semibold">Call Us</p>
-                    <p className="text-sm text-muted-foreground">+1 (555) 123-4567</p>
+                    <p className="text-sm text-muted-foreground">
+                      +256 782-808-261 <br/>
+                      +256 702-029-143
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="w-5 h-5 text-emerald" />
                   <div>
                     <p className="font-semibold">Email Us</p>
-                    <p className="text-sm text-muted-foreground">info@anwarytravel.com</p>
+                    <p className="text-sm text-muted-foreground">
+                      anwaarytravel@gmail.com
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">
                   <MapPin className="w-5 h-5 text-emerald" />
                   <div>
                     <p className="font-semibold">Visit Us</p>
-                    <p className="text-sm text-muted-foreground">123 Travel Plaza, Suite 456<br />New York, NY 10001</p>
+                    <p className="text-sm text-muted-foreground">
+                      AHA Towers, 1st floor, Plot 7 Lourdel Road Nakasero, Kampala
+                    </p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
             {/* Popular Destinations */}
-            <Card className="travel-card">
+            <Card className="travel-card hidden">
               <CardHeader>
                 <CardTitle className="font-serif text-xl text-forest">
                   Most Popular
@@ -373,10 +378,18 @@ const Booking = () => {
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
-                  <Badge variant="secondary" className="mr-2">Maldives Paradise</Badge>
-                  <Badge variant="secondary" className="mr-2">Swiss Alps</Badge>
-                  <Badge variant="secondary" className="mr-2">African Safari</Badge>
-                  <Badge variant="secondary" className="mr-2">Santorini Romance</Badge>
+                  <Badge variant="secondary" className="mr-2">
+                    Maldives Paradise
+                  </Badge>
+                  <Badge variant="secondary" className="mr-2">
+                    Swiss Alps
+                  </Badge>
+                  <Badge variant="secondary" className="mr-2">
+                    African Safari
+                  </Badge>
+                  <Badge variant="secondary" className="mr-2">
+                    Santorini Romance
+                  </Badge>
                 </div>
               </CardContent>
             </Card>

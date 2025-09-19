@@ -1,12 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-export const baseUrl = "http://localhost:3002";
-//export const baseUrl = "https://anwary-backend.pearlnestestates.com";
+// export const baseUrl = "http://localhost:3002";
+export const baseUrl = "https://anwary-backend.pearlnestestates.com";
 
 // Define base API configuration
 export const apiSlice = createApi({
     reducerPath: 'api', // unique key in store
     baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
-    tagTypes: ["Destinations", "Contact", "Booking"],
+    tagTypes: ["Destinations", "Contact", "Booking", "Gallery"],
     endpoints: (builder) => ({
         // Destinations
         getDestinations: builder.query({
@@ -50,6 +50,12 @@ export const apiSlice = createApi({
             }),
             invalidatesTags: ["Booking"]
         }),
+
+        //Gallery
+        getGallery: builder.query({
+            query: ({ page, limit }) => `gallery?page=${page}&limit=${limit}`,
+            providesTags: ["Gallery"],
+        }),
     }),
 });
 
@@ -60,4 +66,5 @@ export const {
     useDeleteDestinationMutation,
     useAddContactMutation,
     useAddBookingMutation,
+    useGetGalleryQuery,
 } = apiSlice;
