@@ -3,7 +3,7 @@ import { MapPin } from "lucide-react";
 
 const GoogleMap = () => {
   // Anwaary Travel office location - Times Square area, NYC
-  const embedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2412648750455!2d-73.98731268459394!3d40.75889097932681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square%2C%20New%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sus!4v1703123456789!5m2!1sen!2sus";
+  const embedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.75161209178!2d32.576048209155644!3d0.33132289966404105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbb74c66550b5%3A0x5bf468a846e19c64!2sAHA%20Towers!5e0!3m2!1sen!2sug!4v1758631495352!5m2!1sen!2sug";
 
   return (
     <Card className="travel-card overflow-hidden">
@@ -30,9 +30,8 @@ const GoogleMap = () => {
           <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-lg max-w-xs">
             <h4 className="font-serif text-lg font-semibold text-forest mb-2">Anwaary Travel</h4>
             <div className="text-sm text-muted-foreground space-y-1">
-              <p>123 Travel Plaza, Suite 456</p>
-              <p>New York, NY 10001</p>
-              <p className="text-emerald font-medium">📞 +1 (555) 123-4567</p>
+              <p>AHA Towers, 1st floor, Plot 7 Lourdel Road Nakasero, Kampala</p>
+              <p className="text-emerald font-medium">📞 +256 782-808-261</p>
             </div>
           </div>
         </div>

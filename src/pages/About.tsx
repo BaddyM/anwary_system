@@ -87,7 +87,7 @@ const About = () => {
             About Anwaary Travel
           </h1>
           <p className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed">
-            For over two decades, we've been crafting extraordinary journeys
+            Over-time, we've been crafting extraordinary journeys
             that transform travelers into storytellers, creating memories that
             last a lifetime.
           </p>
@@ -139,7 +139,8 @@ const About = () => {
                   <span className="text-forest font-bold">Expertise</span>: With
                   knowledgeable staff and partners, Anwary Travel provides
                   valuable insights and guidance throughout the journey.
-                  <br />- *Affordable Packages*: The agency offers competitive
+                  <br /><br />
+                  <span className="text-forest font-bold">Affordable Packages</span>: The agency offers competitive
                   pricing and customizable packages to suit different budgets
                   and preferences.
                 </p>
@@ -148,7 +149,7 @@ const About = () => {
             <div className="relative">
               <div className="aspect-square rounded-lg overflow-hidden shadow-2xl">
                 <img
-                  src="/placeholder.svg"
+                  src="/assets/IMG_0548.jpg"
                   alt="Anwaary Travel founder"
                   className="w-full h-full object-cover"
                 />
@@ -206,7 +207,7 @@ const About = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-background hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             ref={teamRef}
@@ -274,28 +275,28 @@ const About = () => {
             <div>
               <div className="flex items-center justify-center mb-2">
                 <MapPin className="w-6 h-6 text-gold-bright mr-2" />
-                <span className="text-4xl font-bold">150+</span>
+                <span className="text-4xl font-bold">10+</span>
               </div>
               <p className="text-white/90">Destinations Covered</p>
             </div>
             <div>
               <div className="flex items-center justify-center mb-2">
                 <Users className="w-6 h-6 text-gold-bright mr-2" />
-                <span className="text-4xl font-bold">25K+</span>
+                <span className="text-4xl font-bold">1K+</span>
               </div>
               <p className="text-white/90">Happy Travelers</p>
             </div>
             <div>
               <div className="flex items-center justify-center mb-2">
                 <Award className="w-6 h-6 text-gold-bright mr-2" />
-                <span className="text-4xl font-bold">15+</span>
+                <span className="text-4xl font-bold">5</span>
               </div>
               <p className="text-white/90">Industry Awards</p>
             </div>
             <div>
               <div className="flex items-center justify-center mb-2">
                 <Plane className="w-6 h-6 text-gold-bright mr-2" />
-                <span className="text-4xl font-bold">10</span>
+                <span className="text-4xl font-bold">4+</span>
               </div>
               <p className="text-white/90">Years of Excellence</p>
             </div>

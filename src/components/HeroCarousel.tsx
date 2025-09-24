@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import hero1 from "@/assets/hero-1.jpg";
-import hero2 from "@/assets/hero-2.jpg";
-import hero3 from "@/assets/hero-3.jpg";
+import hero1 from "@/assets/iStock-490586878.jpg";
+import hero2 from "@/assets/file-36399-f6527d33a10b7a101af1249e98e05787.jpg";
+import hero3 from "@/assets/kaaba-a2wif1x8on9qihxv.jpg";
+import hero4 from "@/assets/solo-umrah-for-muslim-women-can-they-go-alone-_.webp";
+import hero5 from "@/assets/umrah-badal-step-2.webp";
 
 const slides = [
   {
@@ -21,6 +23,18 @@ const slides = [
   },
   {
     image: hero3,
+    title: "Ancient Wonders & Mystical Journeys",
+    subtitle: "Explore hidden temples and lost civilizations",
+    description: "Uncover the secrets of ancient civilizations in mystical settings where history comes alive in every stone.",
+  },
+  {
+    image: hero4,
+    title: "Ancient Wonders & Mystical Journeys",
+    subtitle: "Explore hidden temples and lost civilizations",
+    description: "Uncover the secrets of ancient civilizations in mystical settings where history comes alive in every stone.",
+  },
+  {
+    image: hero5,
     title: "Ancient Wonders & Mystical Journeys",
     subtitle: "Explore hidden temples and lost civilizations",
     description: "Uncover the secrets of ancient civilizations in mystical settings where history comes alive in every stone.",

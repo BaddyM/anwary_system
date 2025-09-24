@@ -22,6 +22,10 @@ import {
 } from "lucide-react";
 import { baseUrl, useGetDestinationsQuery } from "@/api/apiSlice";
 import { useState } from "react";
+import visaImage from "@/assets/visa.jpg";
+import luxuryFlight from "@/assets/luxury_flight.jpg";
+import luxuryHotel from "@/assets/jumeirah-makkah.jpg";
+import ticketing from "@/assets/ticketing.jpg";
 
 export interface Destination {
   id?: string;
@@ -84,27 +88,27 @@ const Home = () => {
       title: "Luxury Flights",
       description:
         "First-class travel arrangements and premium airline partnerships",
-      image: "/placeholder.svg",
+      image: luxuryFlight,
     },
     {
       icon: Building,
       title: "Premium Hotels",
       description:
         "Handpicked luxury accommodations and exclusive resort access",
-      image: "/placeholder.svg",
+      image: luxuryHotel,
     },
     {
       icon: BookA,
-      title: "Umrah Visa",
-      description: "Authentic visa across the globe.",
-      image: "/placeholder.svg",
+      title: "Visa Processing",
+      description: "Reliable and hassle-free visa processing services, connecting you to destinations worldwide with ease and authenticity.",
+      image: visaImage,
     },
     {
       icon: Mountain,
       title: "Ticketing",
       description:
         "Seamless access to events, experiences, and adventures — discover, book, and enjoy without the hassle.",
-      image: "/placeholder.svg",
+      image: ticketing,
     },
   ];
 
@@ -137,7 +141,7 @@ const Home = () => {
       {/* Company Introduction */}
       <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center hidden">
             <div className="relative">
               <div className="aspect-[4/3] rounded-lg overflow-hidden shadow-2xl">
                 <img

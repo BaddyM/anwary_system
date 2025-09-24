@@ -175,7 +175,7 @@ const Booking = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="email">Email Address *</Label>
+                      <Label htmlFor="email">Email Address </Label>
                       <Input
                         id="email"
                         type="email"
@@ -193,7 +193,7 @@ const Booking = () => {
                       />
                     </div>
                     <div>
-                      <Label htmlFor="phone">Phone Number</Label>
+                      <Label htmlFor="phone">Phone Number *</Label>
                       <Input
                         id="phone"
                         type="tel"

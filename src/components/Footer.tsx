@@ -56,33 +56,38 @@ const Footer = () => {
               Subscribe to our newsletter for exclusive deals, travel tips, and
               destination inspiration.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <Input
-                type="email"
-                onChange={(e) =>
-                  setFormData({
-                    ...formData,
-                    email: e.target.value,
-                  })
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                if (formData.email) {
+                  toast({
+                    title: "Success",
+                    description: "Subscribed to newsletter successfully",
+                  });
+                  setFormData(null);
                 }
-                placeholder="Enter your email"
-                className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:border-gold"
-              />
-              <Button
-                onClick={() => {
-                  if (formData.email) {
-                    toast({
-                      title: "Success",
-                      description: "Subscribed to newsletter successfully",
-                    });
-                    setFormData(null);
+              }}
+            >
+              <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                <Input
+                  type="email"
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      email: e.target.value,
+                    })
                   }
-                }}
-                className="gradient-gold text-forest hover:opacity-90 whitespace-nowrap shadow-lg"
-              >
-                Subscribe
-              </Button>
-            </div>
+                  placeholder="Enter your email"
+                  className="bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:border-gold"
+                />
+                <Button
+                  type="submit"
+                  className="gradient-gold text-forest hover:opacity-90 whitespace-nowrap shadow-lg"
+                >
+                  Subscribe
+                </Button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -194,11 +199,15 @@ const Footer = () => {
               <div className="items-center space-x-1">
                 <div className="flex gap-2 items-center mb-2">
                   <Phone className="w-4 h-4 text-gold-bright" />
-                  <a href="tel:+256 782-808-261"><span className="text-white/80">+256 782-808-261</span></a>
+                  <a href="tel:+256 782-808-261">
+                    <span className="text-white/80">+256 782-808-261</span>
+                  </a>
                 </div>
                 <div className="flex gap-2 items-center">
                   <Phone className="w-4 h-4 text-gold-bright" />
-                  <a href="tel:+256 702-029-143"><span className="text-white/80">+256 702-029-143</span></a>
+                  <a href="tel:+256 702-029-143">
+                    <span className="text-white/80">+256 702-029-143</span>
+                  </a>
                 </div>
               </div>
               <div className="flex items-center space-x-3">

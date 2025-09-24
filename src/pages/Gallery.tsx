@@ -7,6 +7,7 @@ import { useStaggeredAnimation } from "@/hooks/useScrollAnimation";
 import { baseUrl, useGetGalleryQuery } from "@/api/apiSlice";
 import ErrorComponent from "@/components/Error";
 import Loading from "@/components/Loading";
+import { useNavigate } from "react-router-dom";
 
 const categories = [
   "All",
@@ -42,6 +43,7 @@ const Gallery = () => {
     data ? data.data.length : 0,
     100
   );
+  const navigate = useNavigate();
 
   const getAnimationClass = (index: number) => {
     if (visibleItems.includes(index)) {
@@ -69,9 +71,12 @@ const Gallery = () => {
               Travel Gallery
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-slide-up">
-              Immerse yourself in the breathtaking beauty of destinations around
-              the world. Each image tells a story of adventure, luxury, and
-              unforgettable moments.
+              Every journey tells a story — and these are the stories of joy,
+              faith, and unforgettable experiences from those who entrusted us
+              with their sacred travels. From the very first step they took with
+              us, their faces lit up with anticipation, and by the time they
+              reached their destination, those smiles turned into lifelong
+              memories.
             </p>
           </div>
         </section>
@@ -194,12 +199,14 @@ const Gallery = () => {
               Create Your Own Story
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              These incredible destinations are waiting for you. Let us help you
-              plan your perfect journey to capture your own unforgettable
-              moments.
+              Let us help you plan your perfect Umrah and Hijja journey, so you
+              too can capture your own unforgettable moments — praying at the
+              Kaaba, walking through the Prophet’s Mosque, and experiencing the
+              peace that only comes when faith and travel meet.
             </p>
             <Button
               size="lg"
+              onClick={() => navigate("/destinations")}
               className="gradient-gold text-forest hover:opacity-90 px-8 shadow-lg"
             >
               Plan Your Journey
