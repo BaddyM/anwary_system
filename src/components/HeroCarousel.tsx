@@ -11,34 +11,34 @@ import hero5 from "@/assets/umrah-badal-step-2.webp";
 const slides = [
   {
     image: hero1,
-    title: "Tropical Paradise Awaits",
-    subtitle: "Discover pristine beaches and crystal-clear waters",
-    description: "Escape to luxury resorts nestled in tropical paradises where every sunset paints the perfect ending to your perfect day.",
+    title: "Spiritual Journey Services",
+    subtitle: "",
+    description: "Expertly crafted Hajj and Umrah packages tailored to yout needs.",
   },
   {
     image: hero2,
-    title: "Majestic Mountain Adventures",
-    subtitle: "Conquer peaks and find serenity in alpine lakes",
-    description: "Experience the grandeur of towering mountains and serene alpine landscapes where adventure meets tranquility.",
+    title: "Accommodation Options",
+    subtitle: "",
+    description: "Luxurious hotels near Haramain for comfort and convenience.",
   },
   {
     image: hero3,
-    title: "Ancient Wonders & Mystical Journeys",
-    subtitle: "Explore hidden temples and lost civilizations",
-    description: "Uncover the secrets of ancient civilizations in mystical settings where history comes alive in every stone.",
+    title: "Visa Processing",
+    subtitle: "",
+    description: "Hassle-free visa arrangement with expert guidance.",
   },
   {
     image: hero4,
-    title: "Ancient Wonders & Mystical Journeys",
-    subtitle: "Explore hidden temples and lost civilizations",
-    description: "Uncover the secrets of ancient civilizations in mystical settings where history comes alive in every stone.",
+    title: "Travel Arrangements",
+    subtitle: "",
+    description: "Customized itineraries for a personalized experience.",
   },
-  {
-    image: hero5,
-    title: "Ancient Wonders & Mystical Journeys",
-    subtitle: "Explore hidden temples and lost civilizations",
-    description: "Uncover the secrets of ancient civilizations in mystical settings where history comes alive in every stone.",
-  },
+//   {
+//     image: hero5,
+//     title: "Ancient Wonders & Mystical Journeys",
+//     subtitle: "Explore hidden temples and lost civilizations",
+//     description: "Uncover the secrets of ancient civilizations in mystical settings where history comes alive in every stone.",
+//   },
 ];
 
 const HeroCarousel = () => {
