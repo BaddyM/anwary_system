@@ -30,7 +30,7 @@ const GoogleMap = () => {
           <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-lg max-w-xs">
             <h4 className="font-serif text-lg font-semibold text-forest mb-2">Anwaary Travel</h4>
             <div className="text-sm text-muted-foreground space-y-1">
-              <p>AHA Towers, 1st floor, Plot 7 Lourdel Road Nakasero, Kampala</p>
+              <p>AHA Towers, Ground Floor, Plot 7 Lourdel Road Nakasero, Kampala</p>
               <p className="text-emerald font-medium">📞 +256 782-808-261</p>
             </div>
           </div>

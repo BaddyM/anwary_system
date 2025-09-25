@@ -217,7 +217,7 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <MapPin className="w-7 h-7 text-gold-bright" />
                 <span className="text-white/80">
-                  AHA Towers, 1st floor, Plot 7 Lourdel Road Nakasero, Kampala
+                  AHA Towers, Ground Floor, Plot 7 Lourdel Road Nakasero, Kampala
                 </span>
               </div>
             </div>
